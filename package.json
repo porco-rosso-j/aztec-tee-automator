@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "start": "tsx service/src/index.ts"
+  },
+  "packageManager": "pnpm@10.10.0",
+  "dependencies": {
+    "tsx": "^4.19.2"
+  }
+}
