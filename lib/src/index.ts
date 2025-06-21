@@ -1,6 +1,5 @@
 import ky from "ky";
 import ms from "ms";
-import { Base64, Bytes } from "ox";
 import { joinURL } from "ufo";
 import { z } from "zod";
 import { encrypt } from "./encrypt.js";
@@ -32,15 +31,25 @@ export class AutomatorClient {
 	async sendJobRequest(jobRequest: AutomatorJob): Promise<any> {
 		console.log("sendJobRequest: ", this.apiUrl);
 		const encryptionPublicKey = await this.fetchEncryptionPublicKey();
-		const encryptedData = Base64.fromBytes(
-			await encrypt({
-				data: Bytes.fromString(JSON.stringify(jobRequest)),
-				encryptionPublicKey,
-			})
+
+		// Convert JSON string to bytes using TextEncoder (browser-compatible)
+		const jsonString = JSON.stringify(jobRequest);
+		const textEncoder = new TextEncoder();
+		const jsonBytes = textEncoder.encode(jsonString);
+
+		const encryptedData = await encrypt({
+			data: jsonBytes,
+			encryptionPublicKey,
+		});
+
+		// Convert bytes to Base64 using btoa (browser-compatible)
+		const base64Data = btoa(
+			String.fromCharCode(...new Uint8Array(encryptedData))
 		);
+
 		const response = await ky
 			.post(joinURL(this.apiUrl, "jobs"), {
-				json: { data: encryptedData },
+				json: { data: base64Data },
 				timeout: ms("1 min"),
 			})
 			.json();

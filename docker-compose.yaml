@@ -1,12 +1,10 @@
 services:
   aztec-automator-service:
     platform: linux/amd64
-    image: aztec-automator-service:latest
+    image: porcorossoj/aztec-automator-service:latest
     ports:
       - "3000:3000"
     environment:
       NODE_URL: https://a0a7-24-40-157-2.ngrok-free.app
-    # volumes:
-    #   - /var/run/docker.sock:/var/run/docker.sock
     privileged: true
     restart: unless-stopped
