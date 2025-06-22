@@ -617,7 +617,7 @@ export function RecurringPaymentApp() {
 					Recurring Payment App on Aztec
 				</Text>
 				<Text size="16px" color="dimmed" style={{ marginBottom: "16px" }}>
-					Schedule automated recurring payments with TEE privacy
+					schedule private recurring payments on TEE
 				</Text>
 
 				{/* Configuration Information */}
