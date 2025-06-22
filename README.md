@@ -1,6 +1,7 @@
 # Aztec TEE Automator
 
 deck: https://docs.google.com/presentation/d/1q-xdqGwrcpZFMMz6ZRRnUJLQHrlVytR_m43hLyWhcuA/edit?usp=sharing
+demo: https://youtu.be/iw3Ut8DCJkg
 
 ## Overview 
 Smart contract automation is a widely-adopted solution in crypto applications and protocols, e.g. Gelato and Chainlink. Primary use cases in finance(DeFi) are limit order, DCA, auto-rebalancing, and recurring payment, but you can also find non-financial ones, e.g.  time-locked proposal execution in DAO and auto-token ( airdrop / NFT ) claiming.  
