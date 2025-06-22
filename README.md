@@ -18,6 +18,7 @@ For this hackathon, we built the TEE Automator server service, client-side libra
 ## Develop
 
 *run aztec sandbox with version 0.87.8
+*use this aztec node url `https://a0a7-24-40-157-2.ngrok-free.app` which is currently hardcoded in our TEE server, so it may be not working unfortunately if my laptop is asleep. 
 
 run frontend
 ```shell
